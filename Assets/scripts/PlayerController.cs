@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float xRange = 20;
 
     public GameObject projectilePrefab;
+    //public Transform projectileSpawnPoint;
 
     public float verticalInput;
     public float zMin = -2;
@@ -52,11 +53,11 @@ public class PlayerController : MonoBehaviour
             // Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
 
             // Get an object object from the pool
-            GameObject projectilePrefab = ObjectPooler.SharedInstance.GetPooledObject();
-            if (projectilePrefab != null)
+            GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
+            if (pooledProjectile != null)
             {
-                projectilePrefab.SetActive(true); // activate it
-                projectilePrefab.transform.position = transform.position; // position it at player
+                pooledProjectile.SetActive(true); // activate it
+                pooledProjectile.transform.position = new Vector3 (transform.position.x, 2.5f, transform.position.z); // position it at player
 
             }
         }

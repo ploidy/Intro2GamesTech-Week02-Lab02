@@ -27,7 +27,6 @@ public class DetectCollisions : MonoBehaviour
         else if (other.CompareTag("Animal")) //check if other tag was an animal, if it was add points to score
         {
         other.GetComponent<AnimalHunger>().FeedAnimal(1);
-        Destroy(gameObject);
         other.gameObject.SetActive(false);
         }
                 
